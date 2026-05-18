@@ -57,13 +57,6 @@ export default function Contact() {
         </a>
       </div>
 
-      <div style={{
-        marginTop: 80,
-        fontFamily: 'var(--fm)', fontSize: 11,
-        color: 'var(--tx3)', letterSpacing: '.04em',
-      }}>
-        © 2026 Andrés Sánchez · ascode.com.ar
-      </div>
     </section>
   )
 }
