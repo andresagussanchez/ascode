@@ -1,114 +1,70 @@
-import { IconArrowUpRight, IconPoint } from '@tabler/icons-react'
-
 const projects = [
   {
-    name: 'Pro Mallas — Sistema de Gestión',
-    description: 'Sistema interno de producción para Pro Mallas SRL. Diseñado y desarrollado de cero para reemplazar el seguimiento manual en papel.',
-    features: [
-      'Gestión de pedidos con drag & drop para priorización',
-      'Control de stock y necesidades de producción en tiempo real',
-      'Registro de actividad y entregas parciales/totales',
-      'Panel operativo con acceso por roles',
-      'PWA instalable, deploy en VPS propio con Nginx',
-    ],
-    tags: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'PWA', 'Nginx'],
-    url: 'https://app.promallas.com.ar',
-    status: 'En producción',
+    id: '001',
+    name: 'Pro Mallas — Gestión',
+    client: 'Pro Mallas SRL',
     year: '2025',
+    stack: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'Nginx'],
+    desc: 'Sistema interno de producción, stock y entregas para una empresa manufacturera. Diseñado y construido de 0 a 1.',
+    url: 'https://app.promallas.com.ar',
   },
 ]
 
-export default function Projects() {
+export default function Work() {
   return (
-    <section id="projects" style={{
-      maxWidth: 900, margin: '0 auto',
-      padding: '120px 32px',
-      borderTop: '1px solid var(--bd)',
-    }}>
+    <section id="trabajo" className="page-pad" style={{ padding: '80px 56px 40px' }}>
       <div style={{
-        fontFamily: 'var(--fm)', fontSize: 12,
-        color: 'var(--ac)', letterSpacing: '.1em',
-        textTransform: 'uppercase', marginBottom: 16,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        marginBottom: 32,
       }}>
-        Proyectos
+        <h2 style={{
+          fontFamily: 'var(--fm)', fontSize: 14, fontWeight: 500,
+          letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--fg)',
+        }}>
+          <span style={{ color: 'var(--accent)' }}>01</span>{'  '}Trabajo selecto
+        </h2>
+        <span style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
+          {projects.length} proyecto · 2025
+        </span>
       </div>
 
-      <h2 style={{
-        fontSize: 'clamp(26px, 3.5vw, 38px)',
-        fontWeight: 600, letterSpacing: '-0.02em',
-        lineHeight: 1.2, marginBottom: 48,
-      }}>
-        Lo que construí.
-      </h2>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ borderTop: '1px solid var(--border)' }}>
         {projects.map(p => (
-          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer"
-            style={{
-              display: 'block',
-              padding: '32px 36px',
-              background: 'var(--bg2)',
-              border: '1px solid var(--bd)',
-              borderRadius: 12,
-              transition: 'border-color .15s, transform .15s',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.borderColor = 'var(--ac)'
-              e.currentTarget.style.transform = 'translateY(-2px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.borderColor = 'var(--bd)'
-              e.currentTarget.style.transform = 'translateY(0)'
-            }}
+          <a key={p.id} href={p.url} target="_blank" rel="noopener noreferrer"
+            className="project-row"
           >
-            {/* Header */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, gap: 16 }}>
-              <span style={{ fontSize: 17, fontWeight: 600 }}>{p.name}</span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
-                <span style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--tx3)' }}>{p.year}</span>
-                <IconArrowUpRight size={16} color="var(--tx3)" />
+            <span className="row-id row-name" style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
+              {p.id}
+            </span>
+
+            <div className="row-name">
+              <div style={{ fontSize: 30, fontWeight: 500, letterSpacing: '-0.5px', lineHeight: 1.2 }}>
+                {p.name}
+              </div>
+              <div style={{
+                fontFamily: 'var(--fm)', fontSize: 11, fontWeight: 500,
+                letterSpacing: '1px', textTransform: 'uppercase',
+                color: 'var(--dim)', marginTop: 4,
+              }}>
+                {p.client} · {p.year}
               </div>
             </div>
 
-            <p style={{ fontSize: 14, color: 'var(--tx2)', lineHeight: 1.7, marginBottom: 20 }}>
-              {p.description}
+            <p className="row-desc" style={{ fontSize: 15, color: 'var(--fg-soft)', lineHeight: 1.5, maxWidth: 360 }}>
+              {p.desc}
             </p>
 
-            {/* Features */}
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 24 }}>
-              {p.features.map(f => (
-                <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: 13, color: 'var(--tx2)' }}>
-                  <IconPoint size={14} color="var(--ac)" style={{ flexShrink: 0, marginTop: 2 }} />
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            {/* Tags */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', paddingTop: 20, borderTop: '1px solid var(--bd)' }}>
-              <span style={{
-                padding: '3px 10px',
-                background: 'rgba(0,212,170,.1)',
-                border: '1px solid rgba(0,212,170,.2)',
-                borderRadius: 100,
-                fontFamily: 'var(--fm)', fontSize: 11,
-                color: 'var(--ac)',
-              }}>
-                {p.status}
-              </span>
-              {p.tags.map(t => (
+            <div className="row-chips" style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              {p.stack.map(t => (
                 <span key={t} style={{
-                  padding: '3px 10px',
-                  border: '1px solid var(--bd)',
-                  borderRadius: 100,
-                  fontFamily: 'var(--fm)', fontSize: 11,
-                  color: 'var(--tx3)',
-                }}>
-                  {t}
-                </span>
+                  fontFamily: 'var(--fm)', fontSize: 10, letterSpacing: '0.5px',
+                  border: '1px solid var(--border)', padding: '3px 8px',
+                  color: 'var(--dim)',
+                }}>{t}</span>
               ))}
             </div>
+
+            <span className="row-arrow">→</span>
           </a>
         ))}
       </div>

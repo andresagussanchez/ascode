@@ -1,10 +1,9 @@
 import './index.css'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
 import Nav from './components/Nav'
+import Hero from './components/Hero'
+import Work from './components/Projects'
+import Stack from './components/Stack'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -12,9 +11,8 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <About />
-        <Projects />
-        <Contact />
+        <Work />
+        <Stack />
       </main>
       <Footer />
     </>

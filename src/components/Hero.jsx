@@ -1,109 +1,73 @@
-import { IconArrowDown } from '@tabler/icons-react'
-
 export default function Hero() {
   return (
-    <section id="hero" style={{
-      minHeight: '100vh',
-      display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'center',
-      padding: '80px 32px 60px',
-      textAlign: 'center',
-      position: 'relative',
-    }}>
+    <section className="page-pad" style={{ padding: '80px 56px 60px', position: 'relative', overflow: 'hidden' }}>
+      {/* Vertical grid lines */}
       <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        background: 'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(0,212,170,.07) 0%, transparent 70%)',
-        pointerEvents: 'none',
+        position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none',
+        backgroundImage: 'linear-gradient(90deg, var(--border) 1px, transparent 1px)',
+        backgroundSize: '12.5% 100%',
+        opacity: 0.4,
       }} />
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        pointerEvents: 'none', userSelect: 'none', overflow: 'hidden',
-      }}>
-        <span style={{
-          fontSize: 'clamp(280px, 40vw, 520px)',
-          fontWeight: 700,
-          letterSpacing: '-0.06em',
-          lineHeight: 1,
-          color: 'transparent',
-          WebkitTextStroke: '1px rgba(0,212,170,.06)',
-          fontFamily: 'var(--ff)',
-        }}>AS</span>
-      </div>
 
       <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* Eyebrow */}
         <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          padding: '5px 14px',
-          border: '1px solid var(--bd)',
-          borderRadius: 100,
-          fontFamily: 'var(--fm)', fontSize: 12,
-          color: 'var(--tx3)',
-          marginBottom: 32,
-          letterSpacing: '.06em',
+          fontFamily: 'var(--fm)', fontSize: 12, fontWeight: 500,
+          letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: 'var(--dim)', marginBottom: 32,
         }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--ac)', display: 'inline-block' }} />
-          Disponible para trabajar
+          PORTFOLIO · 2020 — 2026
         </div>
 
-        <h1 style={{
-          fontSize: 'clamp(40px, 7vw, 80px)',
-          fontWeight: 700,
-          letterSpacing: '-0.03em',
-          lineHeight: 1.1,
-          marginBottom: 24,
+        {/* Display headline */}
+        <h1 className="hero-display" style={{
+          fontSize: 132, fontWeight: 500,
+          letterSpacing: '-5px', lineHeight: 0.95,
+          marginBottom: 56,
         }}>
-          Hola, soy{' '}
-          <span style={{ color: 'var(--ac)' }}>Andrés</span>
-          <br />
-          <span style={{ fontWeight: 300, color: 'var(--tx2)' }}>Developer</span>
+          <div>Construyo</div>
+          <div>
+            <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--dim)' }}>productos</em>{' '}que
+          </div>
+          <div>
+            la gente <span style={{ color: 'var(--accent)' }}>usa</span>.
+            <span className="cursor" style={{ color: 'var(--accent)', marginLeft: 6 }}>_</span>
+          </div>
         </h1>
 
-        <p style={{
-          fontSize: 18, color: 'var(--tx2)',
-          maxWidth: 480, margin: '0 auto 40px',
-          lineHeight: 1.7,
+        {/* Bottom 2-col */}
+        <div className="hero-bottom" style={{
+          display: 'grid', gridTemplateColumns: '1fr 380px',
+          gap: 48, alignItems: 'end',
         }}>
-          Construyo productos digitales con foco en
-          ciberseguridad y experiencia de usuario.
-        </p>
+          <p style={{
+            fontFamily: 'var(--fm)', fontSize: 14, color: 'var(--dim)',
+            lineHeight: 1.7, maxWidth: 480,
+          }}>
+            Andrés Agustín Sánchez. Desarrollador full-stack con foco en ciberseguridad.
+            Construyo sistemas reales para problemas reales — de la base de datos al servidor propio.
+          </p>
 
-        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="#projects" style={{
-            padding: '11px 24px',
-            background: 'var(--ac)', color: '#000',
-            borderRadius: 8, fontWeight: 600, fontSize: 14,
-            transition: 'background .15s',
+          <a href="#trabajo" className="hero-cta" style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            padding: '18px 28px',
+            background: 'transparent', border: '1px solid var(--fg)',
+            color: 'var(--fg)',
+            fontFamily: 'var(--fm)', fontSize: 12, fontWeight: 600,
+            letterSpacing: '0.3em', textTransform: 'uppercase',
+            transition: 'background .25s, color .25s',
+            cursor: 'pointer',
           }}
-          onMouseEnter={e => e.currentTarget.style.background = 'var(--ac2)'}
-          onMouseLeave={e => e.currentTarget.style.background = 'var(--ac)'}
+          onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = '#0a0a0a' }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--fg)' }}
           >
-            Ver proyectos
-          </a>
-          <a href="#contact" style={{
-            padding: '11px 24px',
-            border: '1px solid var(--bd)', color: 'var(--tx)',
-            borderRadius: 8, fontWeight: 500, fontSize: 14,
-            background: 'var(--bg2)',
-            transition: 'border-color .15s',
-          }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--tx3)'}
-          onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--bd)'}
-          >
-            Contacto
+            Iniciar un proyecto
+            <span style={{ marginLeft: 16 }}>→</span>
           </a>
         </div>
       </div>
 
-      <a href="#about" style={{
-        position: 'absolute', bottom: 32,
-        color: 'var(--tx3)', transition: 'color .15s',
-      }}
-      onMouseEnter={e => e.currentTarget.style.color = 'var(--ac)'}
-      onMouseLeave={e => e.currentTarget.style.color = 'var(--tx3)'}
-      >
-        <IconArrowDown size={20} />
-      </a>
+      <div style={{ height: 1, background: 'var(--border)', margin: '60px -56px 0' }} />
     </section>
   )
 }
