@@ -1,7 +1,8 @@
 const stacks = [
   { cat: 'Frontend',  items: ['React', 'Vite', 'JavaScript', 'CSS'] },
-  { cat: 'Backend',   items: ['Node.js', 'Nginx', 'PM2', 'Ubuntu'] },
-  { cat: 'Datos',     items: ['Supabase', 'PostgreSQL', 'PostgREST'] },
+  { cat: 'Backend',   items: ['Node.js', 'Nginx', 'PM2', 'Ubuntu', 'Tesseract OCR'] },
+  { cat: 'Datos',     items: ['Supabase', 'PostgreSQL', 'PostgREST', 'PL/pgSQL', 'RLS'] },
+  { cat: 'Testing',   items: ['Vitest', 'Testing Library', 'Integration Tests'] },
   { cat: 'Cloud',     items: ['Cloudflare', 'Vercel', 'VPS propio', 'Let\'s Encrypt'] },
 ]
 
@@ -17,7 +18,7 @@ export default function Stack() {
       </h2>
 
       <div className="stack-grid" style={{
-        display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
         gap: '1px', background: 'var(--border)',
       }}>
         {stacks.map(col => (
