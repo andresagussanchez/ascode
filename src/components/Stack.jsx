@@ -14,7 +14,7 @@ export default function Stack() {
         letterSpacing: '0.4em', textTransform: 'uppercase',
         color: 'var(--fg)', marginBottom: 40,
       }}>
-        <span style={{ color: 'var(--accent)' }}>02</span>{'  '}Stack · Herramientas
+        <span style={{ color: 'var(--accent)' }}>03</span>{'  '}Stack · Herramientas
       </h2>
 
       <div className="stack-grid" style={{

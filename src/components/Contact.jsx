@@ -1,16 +1,17 @@
 import { IconBrandGithub, IconMail } from '@tabler/icons-react'
+import { SITE } from '../config'
 
 export default function Contact() {
   return (
     <section id="contact" style={{
       maxWidth: 900, margin: '0 auto',
       padding: '120px 32px 120px',
-      borderTop: '1px solid var(--bd)',
+      borderTop: '1px solid var(--border)',
       textAlign: 'center',
     }}>
       <div style={{
         fontFamily: 'var(--fm)', fontSize: 12,
-        color: 'var(--ac)', letterSpacing: '.1em',
+        color: 'var(--accent)', letterSpacing: '.1em',
         textTransform: 'uppercase', marginBottom: 16,
       }}>
         Contacto
@@ -24,39 +25,22 @@ export default function Contact() {
         Hablemos.
       </h2>
 
-      <p style={{ fontSize: 16, color: 'var(--tx2)', marginBottom: 40, maxWidth: 400, margin: '0 auto 40px' }}>
+      <p style={{ fontSize: 16, color: 'var(--fg-soft)', marginBottom: 40, maxWidth: 400, margin: '0 auto 40px' }}>
         ¿Tenés un proyecto en mente o querés charlar sobre tecnología?
         Escribime.
       </p>
 
       <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-        <a href="mailto:andres.agussanchez@gmail.com" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          padding: '11px 24px',
-          background: 'var(--ac)', color: '#000',
-          borderRadius: 8, fontWeight: 600, fontSize: 14,
-          transition: 'background .15s',
-        }}
-        onMouseEnter={e => e.currentTarget.style.background = 'var(--ac2)'}
-        onMouseLeave={e => e.currentTarget.style.background = 'var(--ac)'}
-        >
-          <IconMail size={16} /> andres.agussanchez@gmail.com
+        <a href={`mailto:${SITE.email}`} className="contact-btn-primary">
+          <IconMail size={16} /> {SITE.email}
         </a>
-        <a href="https://github.com/andresagussanchez" target="_blank" rel="noopener noreferrer" style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          padding: '11px 24px',
-          border: '1px solid var(--bd)', color: 'var(--tx)',
-          borderRadius: 8, fontWeight: 500, fontSize: 14,
-          background: 'var(--bg2)',
-          transition: 'border-color .15s',
-        }}
-        onMouseEnter={e => e.currentTarget.style.borderColor = 'var(--tx3)'}
-        onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--bd)'}
+        <a href={SITE.github} target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub (abre en nueva pestaña)"
+          className="contact-btn-secondary"
         >
           <IconBrandGithub size={16} /> GitHub
         </a>
       </div>
-
     </section>
   )
 }

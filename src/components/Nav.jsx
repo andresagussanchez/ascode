@@ -1,17 +1,11 @@
 import { useState } from 'react'
-
-const Logo = () => (
-  <span style={{ fontFamily: 'var(--fm)', fontSize: 18, fontWeight: 700, letterSpacing: '-1px', userSelect: 'none' }}>
-    <span style={{ color: 'var(--accent)', opacity: 0.85 }}>{'<'}</span>
-    <span style={{ color: 'var(--fg)' }}>AS</span>
-    <span style={{ color: 'var(--accent)', opacity: 0.85 }}>{'/>'}</span>
-  </span>
-)
+import Logo from './Logo'
 
 const navLinks = [
-  { href: '#trabajo',  label: '01 · trabajo' },
-  { href: '#stack',    label: '02 · stack' },
-  { href: '#contacto', label: '03 · contacto' },
+  { href: '#about',    label: '01 · sobre mí' },
+  { href: '#trabajo',  label: '02 · trabajo' },
+  { href: '#stack',    label: '03 · stack' },
+  { href: '#contacto', label: '04 · contacto' },
 ]
 
 export default function Nav() {
@@ -29,7 +23,6 @@ export default function Nav() {
           padding: '18px 56px',
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
-          {/* Left */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <Logo />
             <span style={{
@@ -39,14 +32,12 @@ export default function Nav() {
             }}>ASCODE</span>
           </div>
 
-          {/* Center — hidden on mobile */}
           <div className="nav-links" style={{ display: 'flex', gap: 32 }}>
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="nav-link">{l.label}</a>
             ))}
           </div>
 
-          {/* Right */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{
@@ -60,23 +51,22 @@ export default function Nav() {
               }}>DISPONIBLE</span>
             </div>
 
-            {/* Burger — visible only on mobile via CSS */}
             <button
               className="nav-burger"
               onClick={() => setOpen(o => !o)}
+              aria-label="Menú"
+              aria-expanded={open}
               style={{
                 display: 'none', alignItems: 'center', justifyContent: 'center',
                 background: 'none', border: 'none', cursor: 'pointer',
                 color: 'var(--fg)', padding: 4,
               }}
-              aria-label="Menú"
             >
               {open ? '✕' : '☰'}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {open && (
           <div className="mobile-menu" style={{
             display: 'none',
@@ -87,14 +77,12 @@ export default function Nav() {
             {navLinks.map(l => (
               <a key={l.href} href={l.href}
                 onClick={() => setOpen(false)}
+                className="mobile-nav-link"
                 style={{
                   padding: '16px 24px',
                   fontFamily: 'var(--fm)', fontSize: 13, letterSpacing: '0.1em',
                   color: 'var(--dim)', borderBottom: '1px solid var(--border)',
-                  transition: 'color .2s',
                 }}
-                onMouseEnter={e => e.currentTarget.style.color = 'var(--fg)'}
-                onMouseLeave={e => e.currentTarget.style.color = 'var(--dim)'}
               >
                 {l.label}
               </a>

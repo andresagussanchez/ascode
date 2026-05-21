@@ -6,7 +6,7 @@ const projects = [
     year: '2025',
     stack: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'Nginx'],
     desc: 'Sistema interno de producción, stock y entregas para una empresa manufacturera. Diseñado y construido de 0 a 1.',
-    url: 'https://app.promallas.com.ar',
+    url: 'https://github.com/andresagussanchez/pro-mallas-logistica',
   },
 ]
 
@@ -21,7 +21,7 @@ export default function Work() {
           fontFamily: 'var(--fm)', fontSize: 14, fontWeight: 500,
           letterSpacing: '0.4em', textTransform: 'uppercase', color: 'var(--fg)',
         }}>
-          <span style={{ color: 'var(--accent)' }}>01</span>{'  '}Trabajo selecto
+          <span style={{ color: 'var(--accent)' }}>02</span>{'  '}Trabajo selecto
         </h2>
         <span style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
           {projects.length} proyecto · 2025
@@ -33,7 +33,7 @@ export default function Work() {
           <a key={p.id} href={p.url} target="_blank" rel="noopener noreferrer"
             className="project-row"
           >
-            <span className="row-id row-name" style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
+            <span className="row-id" style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
               {p.id}
             </span>
 

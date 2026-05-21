@@ -1,16 +1,11 @@
-const Logo = () => (
-  <span style={{ fontFamily: 'var(--fm)', fontSize: 18, fontWeight: 700, letterSpacing: '-1px', userSelect: 'none' }}>
-    <span style={{ color: 'var(--accent)', opacity: 0.85 }}>{'<'}</span>
-    <span style={{ color: 'var(--fg)' }}>AS</span>
-    <span style={{ color: 'var(--accent)', opacity: 0.85 }}>{'/>'}</span>
-  </span>
-)
+import Logo from './Logo'
+import { SITE } from '../config'
 
 const channels = [
-  { label: '→ github / @andresagussanchez', href: 'https://github.com/andresagussanchez' },
-  { label: '→ linkedin / andres-sanchez',   href: 'https://linkedin.com/in/andres-sanchez' },
-  { label: '→ x / @ascode_dev',             href: 'https://x.com/ascode_dev' },
-  { label: '→ read.cv / asanchez',           href: 'https://read.cv/asanchez' },
+  { label: '→ github / @andresagussanchez', href: SITE.github },
+  { label: '→ linkedin / andres-sanchez',   href: SITE.linkedin },
+  { label: '→ x / @ascode_dev',             href: SITE.x },
+  { label: '→ read.cv / asanchez',           href: SITE.readcv },
 ]
 
 export default function Footer() {
@@ -24,7 +19,6 @@ export default function Footer() {
         display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr',
         gap: 48, alignItems: 'start', marginBottom: 64,
       }}>
-        {/* Contacto */}
         <div>
           <div style={{
             fontFamily: 'var(--fm)', fontSize: 11, letterSpacing: '0.3em',
@@ -36,15 +30,14 @@ export default function Footer() {
           }}>
             ¿Tenemos algo<br />que construir<span style={{ color: 'var(--accent)' }}>?</span>
           </h2>
-          <a href="mailto:andres.agussanchez@gmail.com" style={{
+          <a href={`mailto:${SITE.email}`} style={{
             fontFamily: 'var(--fm)', fontSize: 18, color: 'var(--accent)',
             textDecorationLine: 'underline', textUnderlineOffset: 4,
           }}>
-            andres.agussanchez@gmail.com
+            {SITE.email}
           </a>
         </div>
 
-        {/* Canales */}
         <div>
           <div style={{
             fontFamily: 'var(--fm)', fontSize: 11, letterSpacing: '0.3em',
@@ -53,6 +46,7 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {channels.map(c => (
               <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
+                aria-label={`${c.label} (abre en nueva pestaña)`}
                 className="channel-link"
               >
                 {c.label}
@@ -61,7 +55,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Ubicación */}
         <div>
           <div style={{
             fontFamily: 'var(--fm)', fontSize: 11, letterSpacing: '0.3em',
@@ -74,7 +67,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom strip */}
       <div style={{
         borderTop: '1px solid var(--border)', paddingTop: 24,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -85,9 +77,6 @@ export default function Footer() {
             © 2026 · Andrés Agustín Sánchez · AsCode
           </span>
         </div>
-        <span style={{ fontFamily: 'var(--fm)', fontSize: 11, color: 'var(--dim)' }}>
-          v2026.05 · <span style={{ color: 'var(--accent)' }}>●</span> build #284
-        </span>
       </div>
     </footer>
   )

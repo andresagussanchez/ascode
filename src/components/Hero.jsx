@@ -25,14 +25,14 @@ export default function Hero() {
           letterSpacing: '-5px', lineHeight: 0.95,
           marginBottom: 56,
         }}>
-          <div>Construyo</div>
-          <div>
-            <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--dim)' }}>productos</em>{' '}que
-          </div>
-          <div>
-            la gente <span style={{ color: 'var(--accent)' }}>usa</span>.
+          <span style={{ display: 'block' }}>Software</span>
+          <span style={{ display: 'block' }}>
+            <em style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--dim)' }}>hecho</em>{' '}a
+          </span>
+          <span style={{ display: 'block' }}>
+            <span style={{ color: 'var(--accent)' }}>medida</span>.
             <span className="cursor" style={{ color: 'var(--accent)', marginLeft: 6 }}>_</span>
-          </div>
+          </span>
         </h1>
 
         {/* Bottom 2-col */}
@@ -67,7 +67,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={{ height: 1, background: 'var(--border)', margin: '60px -56px 0' }} />
+      <div className="hero-divider" style={{ height: 1, background: 'var(--border)', margin: '60px -56px 0' }} />
     </section>
   )
 }
