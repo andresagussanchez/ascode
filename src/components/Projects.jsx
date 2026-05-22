@@ -8,6 +8,14 @@ const projects = [
     desc: 'Sistema interno de producción, stock y entregas para una empresa manufacturera. Diseñado y construido de 0 a 1.',
     url: 'https://github.com/andresagussanchez/pro-mallas-logistica',
   },
+  {
+    id: '002',
+    name: 'Carpas Tagle — Gestión',
+    client: 'Carpas Tagle',
+    year: '2025',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
+    desc: 'Sistema interno de presupuestos e inventario para una empresa de alquiler de carpas y estructuras para eventos.',
+  },
 ]
 
 export default function Work() {
@@ -24,13 +32,16 @@ export default function Work() {
           <span style={{ color: 'var(--accent)' }}>02</span>{'  '}Trabajo selecto
         </h2>
         <span style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
-          {projects.length} proyecto · 2025
+          {projects.length} {projects.length === 1 ? 'proyecto' : 'proyectos'} · 2025
         </span>
       </div>
 
       <div style={{ borderTop: '1px solid var(--border)' }}>
-        {projects.map(p => (
-          <a key={p.id} href={p.url} target="_blank" rel="noopener noreferrer"
+        {projects.map(p => {
+          const Tag = p.url ? 'a' : 'div'
+          const linkProps = p.url ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' } : {}
+          return (
+          <Tag key={p.id} {...linkProps}
             className="project-row"
           >
             <span className="row-id" style={{ fontFamily: 'var(--fm)', fontSize: 12, color: 'var(--dim)' }}>
@@ -64,9 +75,10 @@ export default function Work() {
               ))}
             </div>
 
-            <span className="row-arrow">→</span>
-          </a>
-        ))}
+            {p.url && <span className="row-arrow">→</span>}
+          </Tag>
+          )
+        })}
       </div>
     </section>
   )

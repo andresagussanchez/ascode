@@ -1,5 +1,5 @@
 const stacks = [
-  { cat: 'Frontend',  items: ['React', 'Vite', 'JavaScript', 'CSS'] },
+  { cat: 'Frontend',  items: ['React', 'Next.js', 'Vite', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'CSS'] },
   { cat: 'Backend',   items: ['Node.js', 'Nginx', 'PM2', 'Ubuntu', 'Tesseract OCR'] },
   { cat: 'Datos',     items: ['Supabase', 'PostgreSQL', 'PostgREST', 'PL/pgSQL', 'RLS'] },
   { cat: 'Testing',   items: ['Vitest', 'Testing Library', 'Integration Tests'] },
